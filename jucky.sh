@@ -366,6 +366,17 @@ rm /usr/local/bin/menu.x.c
 rm -rf /root/shc-3.8.7
 rm /root/shc-3.8.7.tgz
 
+# disable ipv6
+echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
+sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
+
+
+# install badvpn
+wget -O /usr/bin/badvpn-udpgw "http://kimnoon.configinter.net/ssh/script/badvpn-udpgw"wget -O /usr/bin/badvpn-udpgw "http://kimnoon.configinter.net/ssh/script/badvpn-udpgw"
+sed -i '$ i\screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300' /etc/rc.local
+chmod +x /usr/bin/badvpn-udpgw
+screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300
+
 # swap ram
 dd if=/dev/zero of=/swapfile bs=1024 count=1024k
 # buat swap
