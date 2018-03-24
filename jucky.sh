@@ -52,33 +52,6 @@ UPDATE AND UPGRADE PROCESS
 
 PLEASE WAIT TAKE TIME 1-5 MINUTE
 "
-#detail nama perusahaan
-country=ID
-state=JAGOANSSH.COM
-locality=JAGOANSSH.COM
-organization=JAGOANSSH.COM
-organizationalunit=ID
-commonname=JAGOANSSH.COM
-email=ADMIN@JAGOANSSH.COM
-
-# go to root
-cd
-
-# install stunnel
-apt-get install stunnel4 -y
-cat > /etc/stunnel/stunnel.conf <<-END
-cert = /etc/stunnel/stunnel.pem
-client = no
-socket = a:SO_REUSEADDR=1
-socket = l:TCP_NODELAY=1
-socket = r:TCP_NODELAY=1
-
-
-[dropbear]
-accept = 443
-connect = 127.0.0.1:3128
-
-END
 
 #membuat sertifikat
 openssl genrsa -out key.pem 2048
