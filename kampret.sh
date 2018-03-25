@@ -257,9 +257,6 @@ service cron start
 #mv limits.conf /etc/security/limits.conf
 #chmod 644 /etc/security/limits.conf
 
-# buka port 80
-iptables -I INPUT -p tcp --dport 80 -j ACCEPT
-
 
 # speedtest
 cd
