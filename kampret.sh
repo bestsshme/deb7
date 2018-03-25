@@ -100,14 +100,6 @@ cp client.ovpn /home/vps/public_html/
 # install webserver
 apt-get -y install nginx
 
-# install essential package
-apt-get -y install nano iptables dnsutils openvpn screen whois ngrep unzip unrar
-
-echo "clear" >> .bashrc
-echo 'echo -e "Selamat datang di server $HOSTNAME" | lolcat' >> .bashrc
-echo 'echo -e "Script mod by Bustami Arifin"' >> .bashrc
-echo 'echo -e "Ketik menu untuk menampilkan daftar perintah"' >> .bashrc
-echo 'echo -e ""' >> .bashrc
 
 # install webserver
 cd
@@ -115,7 +107,7 @@ rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget -O /etc/nginx/nginx.conf "http://vira.cf/nginx.conf"
 mkdir -p /home/vps/public_html
-echo "<pre>Setup by Bustami Arifin</pre>" > /home/vps/public_html/index.html
+echo "<pre>Script by Jucky vengeance</pre>" > /home/vps/public_html/index.html
 wget -O /etc/nginx/conf.d/vps.conf "http://vira.cf/vps.conf"
 service nginx restart
 
